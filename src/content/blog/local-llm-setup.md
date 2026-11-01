@@ -4,6 +4,9 @@ description: Choose a model, configure LM Studio, and troubleshoot local languag
 pubDate: 2026-11-01
 tags:
   - Notes
+  - Local AI
+  - LM Studio
+  - OpenCode
 draft: false
 ---
 

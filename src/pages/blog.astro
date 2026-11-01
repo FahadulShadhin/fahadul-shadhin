@@ -23,13 +23,15 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
     <section class="post-list" aria-label="Blog posts">
       {posts.map((post) => (
         <article class="post">
-          <time class="post-date" datetime={post.data.pubDate.toISOString()}>
-            {dateFormatter.format(post.data.pubDate)}
-          </time>
+          <div class="post-meta">
+            <time class="post-date" datetime={post.data.pubDate.toISOString()}>
+              {dateFormatter.format(post.data.pubDate)}
+            </time>
+          </div>
           <div class="post-content">
-            <p class="post-tags">{post.data.tags.join(" · ") || "Article"}</p>
             <h2><a href={`/blog/${post.id}/`}>{post.data.title}</a></h2>
             <p class="post-description">{post.data.description}</p>
+            <p class="post-tags">{post.data.tags.join(" · ") || "Article"}</p>
           </div>
           <a class="post-arrow" href={`/blog/${post.id}/`} aria-label={`Read ${post.data.title}`}>↗</a>
         </article>
@@ -89,10 +91,18 @@ Write your post here in Markdown.</code></pre>
 
   .post {
     display: grid;
-    grid-template-columns: 90px 1fr 24px;
-    gap: 20px;
+    grid-template-columns: minmax(0, 1fr) 24px;
+    gap: 8px 20px;
     padding: 24px 0 27px;
     border-top: 1px solid var(--line);
+  }
+
+  .post-meta {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
   }
 
   .post-date {
@@ -102,8 +112,13 @@ Write your post here in Markdown.</code></pre>
     font-size: 10px;
   }
 
+  .post-content {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
   .post-tags {
-    margin: 0 0 6px;
+    margin: 10px 0 0;
     color: var(--quiet);
     font-family: var(--mono);
     font-size: 10px;
@@ -132,6 +147,8 @@ Write your post here in Markdown.</code></pre>
   }
 
   .post-arrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
     color: var(--quiet);
   }
 
@@ -213,11 +230,6 @@ Write your post here in Markdown.</code></pre>
     .post {
       grid-template-columns: 1fr 18px;
       gap: 6px 12px;
-    }
-
-    .post-date {
-      grid-column: 1;
-      grid-row: 1;
     }
 
     .post-content {

@@ -26,10 +26,10 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
     <header class="article-header">
       <p class="eyebrow">
         <time datetime={post.data.pubDate.toISOString()}>{dateFormatter.format(post.data.pubDate)}</time>
-        {post.data.tags.length > 0 && <span> · {post.data.tags.join(" · ")}</span>}
       </p>
       <h1>{post.data.title}</h1>
       <p class="article-description">{post.data.description}</p>
+      {post.data.tags.length > 0 && <p class="article-tags">{post.data.tags.join(" · ")}</p>}
     </header>
     <div class="prose">
       <Content />
@@ -76,6 +76,15 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
     color: var(--muted);
     font-size: 17px;
     line-height: 1.75;
+  }
+
+  .article-tags {
+    margin: 12px 0 0;
+    color: var(--quiet);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .prose {
