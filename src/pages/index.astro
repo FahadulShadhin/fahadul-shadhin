@@ -4,6 +4,7 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 import { experience, skills } from "../data/experience";
 import { education } from "../data/education";
 import profilePhoto from "../../assets/profile_pic_v2.jpg";
+import resumePdf from "../../assets/Fahadul_Shadhin_Resume_2026.pdf?url";
 ---
 
 <SiteLayout title="Fahadul Islam Shadhin — Software Engineer" description="I'm Fahadul, a software engineer building full-stack applications, backend services, and useful tools.">
@@ -21,6 +22,12 @@ import profilePhoto from "../../assets/profile_pic_v2.jpg";
           <a href="mailto:fahadulshadhin17@gmail.com">Email</a>
           <a href="https://github.com/FahadulShadhin" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
           <a href="https://linkedin.com/in/fahadul-shadhin" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a class="resume-button" href={resumePdf} download="Fahadul_Shadhin_Resume_2026.pdf" aria-label="Download resume PDF">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path d="M8 2.5v7m0 0 2.75-2.75M8 9.5 5.25 6.75M3 11v2h10v-2"></path>
+            </svg>
+            Resume PDF
+          </a>
         </nav>
       </div>
       <figure class="profile-frame">
@@ -218,6 +225,30 @@ import profilePhoto from "../../assets/profile_pic_v2.jpg";
     color: var(--muted);
     font-size: 13px;
     font-weight: 600;
+  }
+
+  .intro-links .resume-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--muted);
+    transition: color 160ms ease;
+  }
+
+  .intro-links .resume-button:hover {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .resume-button svg {
+    width: 13px;
+    height: 13px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.4;
   }
 
   .text-link {
