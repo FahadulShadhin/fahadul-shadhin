@@ -3,7 +3,7 @@ export const experience = [
     company: "AGT Software Partners",
     url: "https://allgentech.io/",
     employmentType: "Full-time",
-    location: "",
+    location: "New York, US · Remote",
     detail: "Building insurance products and backend workflows, with a focus on API integrations, product configuration, and reliable automation.",
     positions: [
       {
