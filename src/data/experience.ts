@@ -46,6 +46,7 @@ export const experience = [
 
 export const skills = [
   "JavaScript",
+  "TypeScript",
   "Python",
   "React",
   "Node.js",
@@ -53,6 +54,9 @@ export const skills = [
   "Django",
   "PostgreSQL",
   "MongoDB",
+  "GraphQL",
+  "Redis",
   "Shopify",
+  "InsureMO",
   "Docker",
 ];
