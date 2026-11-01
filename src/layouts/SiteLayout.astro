@@ -1,0 +1,487 @@
+---
+const { title = "Fahadul Islam Shadhin", description = "Software engineer building thoughtful web applications and dependable software." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f5ef" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <script is:inline>
+      try {
+        const savedTheme = localStorage.getItem("theme");
+        document.documentElement.dataset.theme = savedTheme === "dark" ? "dark" : "light";
+      } catch (error) {
+        console.warn("Unable to read the saved theme preference.", error);
+        document.documentElement.dataset.theme = "light";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="wordmark" href="/" aria-label="Fahadul Shadhin home">Fahadul Shadhin<span>.</span></a>
+        <nav id="main-navigation" aria-label="Main navigation">
+          <a href="/" class:list={{ active: Astro.url.pathname === "/" }}>Home</a>
+          <a href="/projects" class:list={{ active: Astro.url.pathname.startsWith("/projects") }}>Projects</a>
+          <a href="/blog" class:list={{ active: Astro.url.pathname.startsWith("/blog") }}>Blog</a>
+        </nav>
+        <div class="header-controls">
+          <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"></path>
+            </svg>
+          </button>
+          <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="main-navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <a class="wordmark footer-mark" href="/">Fahadul Shadhin<span>.</span></a>
+        <p>Building useful things, one thoughtful detail at a time.</p>
+        <div class="footer-links">
+          <a href="mailto:fahadulshadhin17@gmail.com">Email</a>
+          <a href="https://github.com/FahadulShadhin" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+          <a href="https://linkedin.com/in/fahadul-shadhin" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        </div>
+        <small>© {new Date().getFullYear()} Fahadul Islam Shadhin</small>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap");
+
+  :root {
+    color-scheme: light;
+    --paper: #f7f5ef;
+    --paper-deep: #efede6;
+    --card: #fbfaf6;
+    --card-border: #dedbd2;
+    --ink: #24231f;
+    --muted: #716f67;
+    --quiet: #96938a;
+    --line: #dedbd2;
+    --body-copy: #5f5d56;
+    --detail-copy: #656259;
+    --tag-copy: #77746b;
+    --accent-muted: #8c887f;
+    --link-underline: #8e8a80;
+    --link-active: #b7b2a7;
+    --code-background: #eeece5;
+    --code-ink: #44423c;
+    --blockquote-line: #c9c5bb;
+    --profile-frame: #d8d5cc;
+    --profile-caption: rgb(247 245 239 / 92%);
+    --timeline-dot: #aaa79f;
+    --timeline-line: #e2dfd8;
+    --availability: #777e64;
+    --card-shadow: 0 2px 6px rgb(36 35 31 / 5%);
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", sans-serif;
+    --mono: "DM Mono", monospace;
+  }
+
+  html[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #1c1b19;
+    --paper-deep: #272622;
+    --card: #23221f;
+    --card-border: #3c3a34;
+    --ink: #f0eee8;
+    --muted: #c0bdb4;
+    --quiet: #99968d;
+    --line: #3c3a34;
+    --body-copy: #c7c3ba;
+    --detail-copy: #b5b1a8;
+    --tag-copy: #aaa69d;
+    --accent-muted: #aaa69d;
+    --link-underline: #8c887e;
+    --link-active: #c0bbae;
+    --code-background: #302f2a;
+    --code-ink: #e1ded6;
+    --blockquote-line: #625f56;
+    --profile-frame: #45423a;
+    --profile-caption: rgb(28 27 25 / 92%);
+    --timeline-dot: #8d897f;
+    --timeline-line: #49463f;
+    --availability: #a4ad87;
+    --card-shadow: 0 2px 8px rgb(0 0 0 / 18%);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--paper);
+    color-scheme: light;
+  }
+
+  html[data-theme="dark"] {
+    color-scheme: dark;
+  }
+
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    transition: color 180ms ease, background-color 180ms ease;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 4px;
+  }
+
+  .page-shell {
+    width: min(100% - 64px, 1040px);
+    margin: 0 auto;
+  }
+
+  .site-header {
+    position: relative;
+    min-height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+  }
+
+  .wordmark span {
+    color: var(--quiet);
+  }
+
+  .site-header nav,
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .theme-toggle {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+
+  .theme-toggle:hover {
+    background: var(--paper-deep);
+  }
+
+  .theme-icon {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.6;
+  }
+
+  .theme-icon-moon,
+  html[data-theme="dark"] .theme-icon-sun {
+    display: none;
+  }
+
+  html[data-theme="dark"] .theme-icon-moon {
+    display: block;
+  }
+
+  .site-header nav a,
+  .footer-links a {
+    color: var(--muted);
+    font-size: 14px;
+    transition: color 160ms ease;
+  }
+
+  .site-header nav a:hover,
+  .site-header nav a.active,
+  .footer-links a:hover {
+    color: var(--ink);
+  }
+
+  .site-header nav a.active {
+    text-decoration: underline;
+    text-decoration-color: var(--link-active);
+    text-underline-offset: 7px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  main {
+    min-height: 60vh;
+  }
+
+  .eyebrow {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.13em;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+
+  .site-footer {
+    margin-top: 112px;
+    padding: 28px 0 30px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 8px 24px;
+    border-top: 1px solid var(--line);
+  }
+
+  .footer-mark {
+    font-size: 17px;
+  }
+
+  .site-footer p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .footer-links {
+    grid-row: span 2;
+    grid-column: 2;
+    gap: 22px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+
+  .site-footer small {
+    color: var(--quiet);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 640px) {
+    .page-shell {
+      width: min(100% - 40px, 1040px);
+    }
+
+    .site-header {
+      min-height: 74px;
+    }
+
+    .wordmark {
+      font-size: 18px;
+    }
+
+    .site-header nav {
+      position: absolute;
+      z-index: 2;
+      top: 100%;
+      right: 0;
+      left: 0;
+      display: none;
+      align-items: stretch;
+      gap: 0;
+      padding: 8px 18px;
+      border: 1px solid var(--line);
+      border-top: 0;
+      background: var(--paper);
+    }
+
+    .site-header.menu-open nav {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .site-header nav a {
+      padding: 12px 0;
+      font-size: 14px;
+    }
+
+    .site-header nav a + a {
+      border-top: 1px solid var(--line);
+    }
+
+    .site-header nav a.active {
+      text-decoration: none;
+    }
+
+    .menu-toggle {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+    }
+
+    .theme-toggle:hover,
+    .menu-toggle:hover {
+      background: var(--paper-deep);
+    }
+
+    .header-controls {
+      gap: 8px;
+    }
+
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+    }
+
+    .menu-toggle span {
+      width: 16px;
+      height: 1px;
+      background: currentColor;
+      transition: transform 160ms ease, opacity 160ms ease;
+    }
+
+    .menu-open .menu-toggle span:first-child {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-open .menu-toggle span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-open .menu-toggle span:last-child {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .site-header nav a {
+      font-size: 13px;
+    }
+
+    .site-footer {
+      margin-top: 76px;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    .footer-links {
+      grid-row: auto;
+      grid-column: 1;
+      margin: 16px 0 8px;
+    }
+  }
+</style>
+
+<script>
+  const themeToggle = document.querySelector<HTMLButtonElement>(".theme-toggle");
+  const themeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+
+  if (themeToggle) {
+    const updateThemeButton = () => {
+      const isDark = document.documentElement.dataset.theme === "dark";
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+      themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+      themeColor?.setAttribute("content", isDark ? "#1c1b19" : "#f7f5ef");
+    };
+
+    updateThemeButton();
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = nextTheme;
+      try {
+        localStorage.setItem("theme", nextTheme);
+      } catch (error) {
+        console.warn("Unable to save the theme preference.", error);
+      }
+      updateThemeButton();
+    });
+  }
+
+  const menuToggle = document.querySelector<HTMLButtonElement>(".menu-toggle");
+  const header = document.querySelector<HTMLElement>(".site-header");
+  const navigation = document.querySelector<HTMLElement>("#main-navigation");
+
+  if (menuToggle && header && navigation) {
+    const setMenuOpen = (isOpen: boolean) => {
+      header.classList.toggle("menu-open", isOpen);
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+    };
+
+    menuToggle.addEventListener("click", () => {
+      setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+    });
+
+    navigation.addEventListener("click", (event) => {
+      if (event.target instanceof Element && event.target.closest("a")) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+        setMenuOpen(false);
+        menuToggle.focus();
+      }
+    });
+  }
+</script>
