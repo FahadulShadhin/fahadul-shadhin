@@ -26,8 +26,8 @@ const { title = "Fahadul Islam Shadhin", description = "Software engineer buildi
         <a class="wordmark" href="/" aria-label="Fahadul Shadhin home">Fahadul Shadhin<span>.</span></a>
         <nav id="main-navigation" aria-label="Main navigation">
           <a href="/" class:list={{ active: Astro.url.pathname === "/" }}>Home</a>
-          <a href="/projects" class:list={{ active: Astro.url.pathname.startsWith("/projects") }}>Projects</a>
-          <a href="/blog" class:list={{ active: Astro.url.pathname.startsWith("/blog") }}>Blog</a>
+          <a href="/projects/" class:list={{ active: Astro.url.pathname.startsWith("/projects") }}>Projects</a>
+          <a href="/blog/" class:list={{ active: Astro.url.pathname.startsWith("/blog") }}>Blog</a>
         </nav>
         <div class="header-controls">
           <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
