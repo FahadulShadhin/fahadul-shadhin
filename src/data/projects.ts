@@ -9,7 +9,7 @@ export const projects = [
   },
   {
     name: "LeetCode Stats API",
-    github: "https://github.com/FahadulShadhin/leetcode-stats-api",
+    github: "https://github.com/FahadulShadhin/leetcode-stats",
     type: "API",
     description: "An API that retrieves and serves LeetCode user statistics in a developer-friendly format.",
     stack: ["GraphQL", "Python", "FastAPI"],
