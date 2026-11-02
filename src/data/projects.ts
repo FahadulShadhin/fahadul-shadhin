@@ -2,30 +2,32 @@ export const projects = [
   {
     name: "ERD to Prisma",
     github: "https://github.com/FahadulShadhin/erd-to-prisma",
+    live: "https://erd-to-prisma.netlify.app/",
     type: "Developer tool",
     description: "A web application for designing entity-relationship diagrams and generating Prisma schema definitions.",
-    stack: ["Prisma", "Database design"],
+    stack: ["Prisma", "Database design", "TypeScript", "React"],
   },
   {
     name: "LeetCode Stats API",
     github: "https://github.com/FahadulShadhin/leetcode-stats-api",
     type: "API",
     description: "An API that retrieves and serves LeetCode user statistics in a developer-friendly format.",
-    stack: ["REST API", "JavaScript"],
+    stack: ["GraphQL", "Python", "FastAPI"],
   },
   {
     name: "Share File CLI",
     github: "https://github.com/FahadulShadhin/share-file-cli",
+    live: "https://www.npmjs.com/package/share-file-cli",
     type: "Command-line tool",
     description: "A lightweight command-line tool for sharing files directly from the terminal.",
-    stack: ["CLI", "Python"],
+    stack: ["CLI", "Typescript", "Google APIs"],
   },
   {
     name: "Sorting Algorithms Visualizer",
     github: "https://github.com/FahadulShadhin/sorting-algorithms-visualizer",
     type: "Desktop application",
     description: "An interactive desktop application that makes sorting algorithm execution easier to see and understand.",
-    stack: ["Algorithms", "Visualization"],
+    stack: ["Algorithms", "Visualization", "Python"],
   },
   {
     name: "Sentiment Analysis API",
@@ -33,6 +35,14 @@ export const projects = [
     type: "Machine learning",
     description: "An API that classifies text sentiment, bringing a simple language-analysis workflow behind an endpoint.",
     stack: ["Python", "NLP"],
+  },
+  {
+    name: "fahadulshadhin.com",
+    github: "https://github.com/FahadulShadhin/fahadul-shadhin",
+    // live: "https://fahadulshadhin.netlify.app/",
+    type: "website",
+    description: "This website!",
+    stack: ["Astro", "TypeScript"],
   },
 ];
 

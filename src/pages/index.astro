@@ -5,6 +5,11 @@ import { experience, skills } from "../data/experience";
 import { education } from "../data/education";
 import profilePhoto from "../../assets/profile_pic_v2.jpg";
 import resumePdf from "../../assets/Fahadul_Shadhin_Resume_2026.pdf?url";
+import DownloadIcon from "../icons/download.svg";
+import EmailIcon from "../icons/email.svg";
+import ExternalLinkIcon from "../icons/external-link.svg";
+import GitHubIcon from "../icons/github.svg";
+import LinkedInIcon from "../icons/linkedin.svg";
 ---
 
 <SiteLayout title="Fahadul Islam Shadhin — Software Engineer" description="I'm Fahadul, a software engineer building full-stack applications, backend services, and useful tools.">
@@ -19,13 +24,17 @@ import resumePdf from "../../assets/Fahadul_Shadhin_Resume_2026.pdf?url";
           </p>
         </div>
         <nav class="intro-links" aria-label="Contact and social links">
-          <a href="mailto:fahadulshadhin17@gmail.com">Email</a>
-          <a href="https://github.com/FahadulShadhin" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-          <a href="https://linkedin.com/in/fahadul-shadhin" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="mailto:fahadulshadhin17@gmail.com" aria-label="Email Fahadul">
+            <EmailIcon class="link-icon" aria-hidden="true" />
+          </a>
+          <a href="https://github.com/FahadulShadhin" target="_blank" rel="noreferrer" aria-label="Fahadul on GitHub">
+            <GitHubIcon class="link-icon link-icon-fill" aria-hidden="true" />
+          </a>
+          <a href="https://linkedin.com/in/fahadul-shadhin" target="_blank" rel="noreferrer" aria-label="Fahadul on LinkedIn">
+            <LinkedInIcon class="link-icon link-icon-fill" aria-hidden="true" />
+          </a>
           <a class="resume-button" href={resumePdf} download="Fahadul_Shadhin_Resume_2026.pdf" aria-label="Download resume PDF">
-            <svg viewBox="0 0 16 16" aria-hidden="true">
-              <path d="M8 2.5v7m0 0 2.75-2.75M8 9.5 5.25 6.75M3 11v2h10v-2"></path>
-            </svg>
+            <DownloadIcon aria-hidden="true" />
             Resume PDF
           </a>
         </nav>
@@ -57,7 +66,7 @@ import resumePdf from "../../assets/Fahadul_Shadhin_Resume_2026.pdf?url";
       {experience.map((employer) => (
         <article class="experience-company">
           <h3 class="company">
-            {employer.url ? <a href={employer.url} target="_blank" rel="noreferrer">{employer.company} <span aria-hidden="true">↗</span></a> : employer.company}
+            {employer.url ? <a href={employer.url} target="_blank" rel="noreferrer">{employer.company} <ExternalLinkIcon class="link-icon" aria-hidden="true" /></a> : employer.company}
           </h3>
           {(employer.employmentType || employer.location) && (
             <p class="company-meta">
@@ -223,6 +232,9 @@ import resumePdf from "../../assets/Fahadul_Shadhin_Resume_2026.pdf?url";
   }
 
   .intro-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     color: var(--muted);
     font-size: 13px;
     font-weight: 600;

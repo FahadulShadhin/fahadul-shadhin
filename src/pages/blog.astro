@@ -1,6 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import SiteLayout from "../layouts/SiteLayout.astro";
+import EmailIcon from "../icons/email.svg";
+import ArrowUpRightIcon from "../icons/arrow-up-right.svg";
 
 const posts = (await getCollection("blog", ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
@@ -33,7 +35,9 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
             <p class="post-description">{post.data.description}</p>
             <p class="post-tags">{post.data.tags.join(" · ") || "Article"}</p>
           </div>
-          <a class="post-arrow" href={`/blog/${post.id}/`} aria-label={`Read ${post.data.title}`}>↗</a>
+          <a class="post-arrow" href={`/blog/${post.id}/`} aria-label={`Read ${post.data.title}`}>
+            <ArrowUpRightIcon class="link-icon" aria-hidden="true" />
+          </a>
         </article>
       ))}
     </section>
@@ -58,7 +62,10 @@ Write your post here in Markdown.</code></pre>
   <section class="contact-note">
     <p class="eyebrow">Have a question or an idea?</p>
     <p>I’m always happy to talk about software, projects, and the problems behind them.</p>
-    <a class="text-link" href="mailto:fahadulshadhin17@gmail.com">Write me a note <span aria-hidden="true">↗</span></a>
+    <a class="text-link" href="mailto:fahadulshadhin17@gmail.com">
+      <EmailIcon class="link-icon" aria-hidden="true" />
+      Write me a note
+    </a>
   </section>
 </SiteLayout>
 
@@ -147,6 +154,9 @@ Write your post here in Markdown.</code></pre>
   }
 
   .post-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     grid-column: 2;
     grid-row: 1 / span 2;
     color: var(--quiet);

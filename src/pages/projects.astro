@@ -1,6 +1,9 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { agtClientWork, professionalWork, projects } from "../data/projects";
+import ExternalLinkIcon from "../icons/external-link.svg";
+import GitHubIcon from "../icons/github.svg";
+import WebsiteIcon from "../icons/website.svg";
 ---
 
 <SiteLayout title="Projects — Fahadul Islam Shadhin" description="Selected software projects by Fahadul Islam Shadhin, including developer tools, APIs, and experiments.">
@@ -8,7 +11,6 @@ import { agtClientWork, professionalWork, projects } from "../data/projects";
     <p class="eyebrow">Selected work · 2023—26</p>
     <h1>Projects<span>.</span></h1>
     <p class="page-description">A collection of tools, experiments, and ideas I’ve brought to life. A few are small utilities; all of them started with a problem worth solving.</p>
-    <a class="text-link" href="https://github.com/FahadulShadhin" target="_blank" rel="noreferrer">More on GitHub <span aria-hidden="true">↗</span></a>
   </section>
 
   <section class="project-grid" aria-label="Selected projects">
@@ -21,9 +23,16 @@ import { agtClientWork, professionalWork, projects } from "../data/projects";
         </div>
         <div class="card-footer">
           <div class="tags">{project.stack.map((item) => <span>{item}</span>)}</div>
-          <a class="github-link" href={project.github} target="_blank" rel="noreferrer">
-            GitHub <span aria-hidden="true">↗</span>
-          </a>
+          <div class="project-links">
+            {project.live && (
+              <a class="project-link live-link" href={project.live} target="_blank" rel="noreferrer" aria-label={`View ${project.name} live`} title="View live project">
+                <WebsiteIcon aria-hidden="true" />
+              </a>
+            )}
+            <a class="project-link github-link" href={project.github} target="_blank" rel="noreferrer" aria-label={`View ${project.name} on GitHub`} title="View on GitHub">
+              <GitHubIcon aria-hidden="true" />
+            </a>
+          </div>
         </div>
       </article>
     ))}
@@ -46,7 +55,8 @@ import { agtClientWork, professionalWork, projects } from "../data/projects";
             <p class="project-description">{item.description}</p>
           </div>
           <a class="professional-link" href={item.url} target="_blank" rel="noreferrer">
-            {item.linkLabel} <span aria-hidden="true">↗</span>
+            {item.linkLabel}
+            <ExternalLinkIcon class="link-icon" aria-hidden="true" />
           </a>
         </article>
       ))}
@@ -70,18 +80,13 @@ import { agtClientWork, professionalWork, projects } from "../data/projects";
             <p class="project-description">{item.description}</p>
           </div>
           <a class="professional-link" href={item.url} target="_blank" rel="noreferrer">
-            Visit website <span aria-hidden="true">↗</span>
+            Visit website
+            <ExternalLinkIcon class="link-icon" aria-hidden="true" />
           </a>
         </article>
       ))}
     </div>
   </section>
-
-  <!-- <section class="project-note">
-    <p class="eyebrow">Along the way</p>
-    <p>I’ve also worked on custom Shopify apps, insurance product workflows, API integrations, and internal tools with teams at <strong>AGT Software Partners</strong> and <strong>Bevy Commerce</strong>.</p>
-    <a class="text-link" href="mailto:fahadulshadhin17@gmail.com">Ask me about my work <span aria-hidden="true">↗</span></a>
-  </section> -->
 </SiteLayout>
 
 <style>
@@ -255,20 +260,43 @@ import { agtClientWork, professionalWork, projects } from "../data/projects";
     margin-top: 22px;
   }
 
-  .github-link {
+  .project-links {
     display: inline-flex;
     flex-shrink: 0;
     align-items: center;
-    gap: 5px;
-    color: var(--muted);
-    font-size: 11px;
-    font-weight: 600;
+    gap: 12px;
   }
 
-  .github-link:hover {
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--muted);
+    border-radius: 3px;
+  }
+
+  .project-link svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+  }
+
+  .live-link svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.5;
+  }
+
+  .github-link svg {
+    fill: currentColor;
+  }
+
+  .project-link:hover {
     color: var(--ink);
-    text-decoration: underline;
-    text-underline-offset: 3px;
   }
 
   .project-note {

@@ -1,5 +1,10 @@
 ---
 const { title = "Fahadul Islam Shadhin", description = "Software engineer building thoughtful web applications and dependable software." } = Astro.props;
+import EmailIcon from "../icons/email.svg";
+import GitHubIcon from "../icons/github.svg";
+import LinkedInIcon from "../icons/linkedin.svg";
+import MoonIcon from "../icons/moon.svg";
+import SunIcon from "../icons/sun.svg";
 ---
 
 <!doctype html>
@@ -31,13 +36,8 @@ const { title = "Fahadul Islam Shadhin", description = "Software engineer buildi
         </nav>
         <div class="header-controls">
           <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
-            <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="4"></circle>
-              <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
-            </svg>
-            <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"></path>
-            </svg>
+            <SunIcon class="theme-icon theme-icon-sun" aria-hidden="true" />
+            <MoonIcon class="theme-icon theme-icon-moon" aria-hidden="true" />
           </button>
           <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="main-navigation" aria-expanded="false">
             <span></span>
@@ -55,9 +55,15 @@ const { title = "Fahadul Islam Shadhin", description = "Software engineer buildi
         <a class="wordmark footer-mark" href="/">Fahadul Shadhin<span>.</span></a>
         <p>Building useful things, one thoughtful detail at a time.</p>
         <div class="footer-links">
-          <a href="mailto:fahadulshadhin17@gmail.com">Email</a>
-          <a href="https://github.com/FahadulShadhin" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-          <a href="https://linkedin.com/in/fahadul-shadhin" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="mailto:fahadulshadhin17@gmail.com" aria-label="Email Fahadul">
+            <EmailIcon class="link-icon" aria-hidden="true" />
+          </a>
+          <a href="https://github.com/FahadulShadhin" target="_blank" rel="noreferrer" aria-label="Fahadul on GitHub">
+            <GitHubIcon class="link-icon link-icon-fill" aria-hidden="true" />
+          </a>
+          <a href="https://linkedin.com/in/fahadul-shadhin" target="_blank" rel="noreferrer" aria-label="Fahadul on LinkedIn">
+            <LinkedInIcon class="link-icon link-icon-fill" aria-hidden="true" />
+          </a>
         </div>
         <small>© {new Date().getFullYear()} Fahadul Islam Shadhin</small>
       </footer>
@@ -155,6 +161,23 @@ const { title = "Fahadul Islam Shadhin", description = "Software engineer buildi
     text-decoration: none;
   }
 
+  .link-icon {
+    width: 14px;
+    height: 14px;
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.4;
+    vertical-align: middle;
+  }
+
+  .link-icon-fill {
+    fill: currentColor;
+    stroke: none;
+  }
+
   a:focus-visible {
     outline: 2px solid var(--ink);
     outline-offset: 4px;
@@ -237,6 +260,9 @@ const { title = "Fahadul Islam Shadhin", description = "Software engineer buildi
 
   .site-header nav a,
   .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
     color: var(--muted);
     font-size: 14px;
     transition: color 160ms ease;

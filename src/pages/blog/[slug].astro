@@ -22,7 +22,10 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
 
 <SiteLayout title={`${post.data.title} — Fahadul Islam Shadhin`} description={post.data.description}>
   <article class="article">
-    <a class="back-link" href="/blog/">← All posts</a>
+    <a class="back-link" href="/blog/">
+      <svg class="link-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M14 8H2m0 0 5-5m-5 5 5 5" /></svg>
+      All posts
+    </a>
     <header class="article-header">
       <p class="eyebrow">
         <time datetime={post.data.pubDate.toISOString()}>{dateFormatter.format(post.data.pubDate)}</time>
@@ -45,6 +48,9 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
   }
 
   .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
     color: var(--muted);
     font-size: 13px;
   }
@@ -116,6 +122,11 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
     text-decoration: underline;
     text-decoration-color: var(--link-underline);
     text-underline-offset: 3px;
+  }
+
+  .prose :global(a[href^="http"]::after) {
+    content: " ↗";
+    font-size: 0.8em;
   }
 
   .prose :global(blockquote) {
