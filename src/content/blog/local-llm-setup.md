@@ -7,7 +7,7 @@ tags:
   - Local AI
   - LM Studio
   - OpenCode
-draft: false
+draft: true
 ---
 
 A Mac with 24 GB of unified memory can run useful language models locally, but the best experience comes from choosing a model that leaves room for macOS, the model's context, and your other apps.
