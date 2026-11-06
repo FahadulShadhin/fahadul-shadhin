@@ -64,7 +64,7 @@ export const professionalWork = [
   },
   {
     name: "Rubino Shoes",
-    organization: "Featured client",
+    organization: "Bevy Commerce · Client",
     description: "A major client engagement during my work at Bevy Commerce.",
     url: "https://rubinoshoes.com/",
     linkLabel: "Visit website",
