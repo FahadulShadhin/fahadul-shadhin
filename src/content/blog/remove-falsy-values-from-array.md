@@ -1,11 +1,10 @@
 ---
-title: Remove Falsy Values from an Array in JavaScript
-description: Technique on how to remove any falsy values from a JavaScript array and return array with only truthy values.
+title: Remove Falsy Values from a JavaScript Array
+description: How to remove falsy values from a JavaScript array using Array.prototype.filter() and Boolean. The resulting array retains only truthy values.
 pubDate: 2026-11-01
 tags:
   - JavaScript
   - Interview Question
-  - Fundamental
 draft: false
 ---
 
