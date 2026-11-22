@@ -144,6 +144,24 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
     line-height: 1.7;
   }
 
+  .prose :global(pre.astro-code) {
+    background-color: var(--shiki-light-bg);
+    color: var(--shiki-light);
+  }
+
+  .prose :global(pre.astro-code span) {
+    color: var(--shiki-light);
+  }
+
+  :global(html[data-theme="dark"]) .prose :global(pre.astro-code) {
+    background-color: var(--shiki-dark-bg);
+    color: var(--shiki-dark);
+  }
+
+  :global(html[data-theme="dark"]) .prose :global(pre.astro-code span) {
+    color: var(--shiki-dark);
+  }
+
   .prose :global(code) {
     font-family: var(--mono);
     font-size: 0.9em;

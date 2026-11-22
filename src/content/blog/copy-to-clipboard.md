@@ -13,7 +13,7 @@ This article shows how to copy text from a web page using JavaScript. When the `
 
 ## Basic Example
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +41,7 @@ This article shows how to copy text from a web page using JavaScript. When the `
 
 You can achieve this with a simple JavaScript DOM manipulation technique. Add a `click` event listener to the copy button:
 
-```JavaScript
+```javascript
 <script>
 document.getElementById('copy-button').addEventListener('click', () => {
     const textToCopy = document.getElementById('text-to-copy').innerText;
@@ -75,7 +75,7 @@ This technique is useful when a page contains code snippets or commands that use
 
 The example below creates a mock documentation page that explains how to use `uv` to run a Python project. The commands can be copied with the DOM manipulation technique described above.
 
-```HTML
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>

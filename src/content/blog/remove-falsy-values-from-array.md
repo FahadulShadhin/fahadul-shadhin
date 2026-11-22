@@ -20,7 +20,7 @@ JavaScript has the following falsy values:
 
 The task is to remove those from an array:
 
-```JavaScript
+```javascript
 let myArr = [0, 1, false, 2, '', 3, null, undefined, NaN, 4, 'hello', true];
 let filteredArr = myArr.filter(Boolean);
 console.log(filteredArr);
@@ -36,7 +36,7 @@ outputs only the truthy values:
 #### The `Boolean` function:
 To understand this we need to understand the `Boolean` function. The `Boolean` function returns `true` or `false` depending on the expression given to it:
 
-```JavaScript
+```javascript
 Boolean(5 > 6) // returns: false
 Boolean(5 < 6) // returns: true
 Boolean('Hello world') // returns: true
@@ -48,7 +48,7 @@ Boolean(false) // returns: false
 #### The `filter` array method:
 The structure of `filter` function is as below:
 
-```JavaScript
+```javascript
 someArray.filter(function(element, index, array) {
   // Return a truthy value to keep the element
   return true;
@@ -58,7 +58,7 @@ We need to send a function reference to `filter`. It calls the function for ever
 
 An example:
 
-```JavaScript
+```javascript
 let arr1 = [1 ,2, 3, 4, 5, 6, 7, 8, 9, 10];
 let arr2 = arr1.filter(function isSmallerThanFive(num) {
   return num < 5;
