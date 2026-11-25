@@ -83,7 +83,7 @@ The `get_drive_credentials` function follows these steps:
 
 With valid credentials, the function builds the Drive service and uploads the file.
 
-#### `get_drive_service` builds the authenticated Drive API service from the credentials.
+#### `get_drive_service` builds the authenticated Drive API service from the credentials:
 
 ```python
 def get_drive_service() -> Any:
@@ -91,7 +91,7 @@ def get_drive_service() -> Any:
     return build("drive", "v3", credentials=credentials)
 ```
 
-#### `_find_drive_file` finds an existing file by name and returns its id.
+#### `_find_drive_file` finds an existing file by name and returns its id:
 
 ```python
 def _find_drive_file(service: Any, file_name: str) -> str | None:
@@ -112,7 +112,7 @@ def _find_drive_file(service: Any, file_name: str) -> str | None:
     return files[0]["id"] if files else None
 ```
 
-#### `upload_pdf_to_drive` function uploads the file, or updates the existing one, and returns the share link.
+#### `upload_pdf_to_drive` uploads the file, or updates the existing one, and returns the share link:
 
 ```python
 def upload_pdf_to_drive(
@@ -149,11 +149,7 @@ def upload_pdf_to_drive(
     return created.get("webViewLink") or f"https://drive.google.com/file/d/{created.get('id')}/view"
 ```
 
-The function checks for an existing file with the same name and updates it, or creates a new one, then returns the share link.
-
-The update-or-create branch:
-- Updates if a file already exists
-- Creates new file if not exists
+The function checks for an existing file with the same name and updates it, or creates a new one, then returns the share link. The update-or-create branch:
 
 ```python
 if existing_file_id:
@@ -176,7 +172,7 @@ else:
 
 1. Go to the Google Cloud Console: [https://console.cloud.google.com](https://console.cloud.google.com/) and create or select a project.
 2. Enable the Google Drive API — go to [https://console.cloud.google.com/apis/library/drive.googleapis.com](https://console.cloud.google.com/apis/library/drive.googleapis.com) and enable it.
-3. Configure the OAuth consent screen — go to [https://console.cloud.google.com/apis/consent](https://console.cloud.google.com/apis/consent) and add the Drive scope.
+3. Configure the OAuth consent screen — go to [https://console.cloud.google.com/auth/audience](https://console.cloud.google.com/auth/audience) and add the Drive scope.
 4. Create the OAuth 2.0 Client ID for a Desktop app — go to [https://console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials) and create an OAuth client ID with **Desktop app** type.
 5. Set the `GOOGLE_DRIVE_CLIENT_ID`, `GOOGLE_DRIVE_CLIENT_SECRET`, and `GOOGLE_DRIVE_TOKEN_PATH` environment variables (e.g., in `.env`).
 
