@@ -9,9 +9,7 @@ tags:
 draft: false
 ---
 
-We need to upload a file to Google Drive; Using code — through the Google Drive API with an OAuth 2.0 token.
-
-Google Drive does not accept anonymous uploads. Every request must be authenticated with OAuth 2.0.
+We need to upload a file to Google Drive; Using code — through the Google Drive API with an OAuth 2.0 token. Google Drive does not accept anonymous uploads. Every request must be authenticated.
 
 The upload process works in two phases:
 - Auth Phase
