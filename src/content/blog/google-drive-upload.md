@@ -13,7 +13,11 @@ We need to upload a file to Google Drive; Using code — through the Google Driv
 
 Google Drive does not accept anonymous uploads. Every request must be authenticated with OAuth 2.0.
 
-The upload process works in two phases.
+The upload process works in two phases:
+- Auth Phase
+- Upload Phase
+
+![Process](/src/content/blog/assets/images/drive-upload-flow.drawio.png)
 
 ## Phase 1: The Auth Flow
 
