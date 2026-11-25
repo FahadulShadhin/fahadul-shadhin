@@ -38,6 +38,13 @@ export const projects = [
     stack: ["Python", "NLP"],
   },
   {
+    name: "My Resume Builder",
+    github: "https://github.com/FahadulShadhin/resume-builder",
+    type: "Command-line tool",
+    description: "Builds a one-page PDF resume from a JSON profile and uploads it to Google Drive.",
+    stack: ["Python", "ReportLab", "Pydantic", "Google Drive API", "CLI"],
+  },
+  {
     name: "fahadulshadhin.com",
     github: "https://github.com/FahadulShadhin/fahadul-shadhin",
     // live: "https://fahadulshadhin.netlify.app/",
