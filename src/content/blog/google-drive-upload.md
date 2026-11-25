@@ -6,7 +6,6 @@ tags:
   - Google Drive
   - OAuth 2.0
   - API
-  - Python
 draft: false
 ---
 
@@ -74,7 +73,7 @@ def get_drive_credentials() -> Credentials:
     return credentials
 ```
 
-The function follows these steps:
+The `get_drive_credentials` function follows these steps:
 
 1. Read the OAuth client credentials from the environment.
 2. Load the saved token from the token file and validate it.
@@ -84,11 +83,15 @@ The function follows these steps:
 
 With valid credentials, the function builds the Drive service and uploads the file.
 
+#### `get_drive_service` builds the authenticated Drive API service from the credentials.
+
 ```python
 def get_drive_service() -> Any:
     credentials = get_drive_credentials()
     return build("drive", "v3", credentials=credentials)
 ```
+
+#### `_find_drive_file` finds an existing file by name and returns its id.
 
 ```python
 def _find_drive_file(service: Any, file_name: str) -> str | None:
@@ -108,6 +111,8 @@ def _find_drive_file(service: Any, file_name: str) -> str | None:
     files = result.get("files", [])
     return files[0]["id"] if files else None
 ```
+
+#### `upload_pdf_to_drive` function uploads the file, or updates the existing one, and returns the share link.
 
 ```python
 def upload_pdf_to_drive(
@@ -146,13 +151,34 @@ def upload_pdf_to_drive(
 
 The function checks for an existing file with the same name and updates it, or creates a new one, then returns the share link.
 
+The update-or-create branch:
+- Updates if a file already exists
+- Creates new file if not exists
+
+```python
+if existing_file_id:
+    # A file with this name already exists → update it
+    service.files().update(
+        fileId=existing_file_id,
+        media_body=media,
+        fields="id,name,mimeType,webViewLink",
+    ).execute()
+else:
+    # No file with this name exists → create a new one
+    service.files().create(
+        body={"name": file_name, "mimeType": "application/pdf"},
+        media_body=media,
+        fields="id,name,mimeType,webViewLink",
+    ).execute()
+```
+
 ## How to Get Google Cloud Credentials?
 
-1. Create or select a Google Cloud project.
-2. Enable the Google Drive API.
-3. Configure the OAuth consent screen with the Drive scope.
-4. Create the OAuth 2.0 Client ID for a Desktop app.
-5. Set the `GOOGLE_DRIVE_CLIENT_ID`, `GOOGLE_DRIVE_CLIENT_SECRET`, and `GOOGLE_DRIVE_TOKEN_PATH` environment variables.
+1. Go to the Google Cloud Console: [https://console.cloud.google.com](https://console.cloud.google.com/) and create or select a project.
+2. Enable the Google Drive API — go to [https://console.cloud.google.com/apis/library/drive.googleapis.com](https://console.cloud.google.com/apis/library/drive.googleapis.com) and enable it.
+3. Configure the OAuth consent screen — go to [https://console.cloud.google.com/apis/consent](https://console.cloud.google.com/apis/consent) and add the Drive scope.
+4. Create the OAuth 2.0 Client ID for a Desktop app — go to [https://console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials) and create an OAuth client ID with **Desktop app** type.
+5. Set the `GOOGLE_DRIVE_CLIENT_ID`, `GOOGLE_DRIVE_CLIENT_SECRET`, and `GOOGLE_DRIVE_TOKEN_PATH` environment variables (e.g., in `.env`).
 
 ## Wrapping Up
 
