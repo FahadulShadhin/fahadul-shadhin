@@ -17,7 +17,7 @@ The upload process works in two phases:
 - Auth Phase
 - Upload Phase
 
-![Process](/src/content/blog/assets/images/drive-upload-flow.drawio.png)
+![Process](./assets/images/drive-upload-flow.drawio.png)
 
 ## Phase 1: The Auth Flow
 
