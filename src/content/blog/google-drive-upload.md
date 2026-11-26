@@ -17,6 +17,8 @@ The upload process works in two phases:
 
 ![Process](./assets/images/drive-upload-flow.drawio.png)
 
+![Process](./assets/images/drive-upload-flow-dark.png)
+
 ## Phase 1: The Auth Flow
 
 The auth function reads the client credentials, loads the token, and either refreshes or creates a token.

@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Page-1" id="d08wf1ZYQsXQ1o7i7jk-">
+    <mxGraphModel dx="1294" dy="877" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="l7njR7gRJoPId_zkLMxI-10" edge="1" parent="1" source="l7njR7gRJoPId_zkLMxI-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;strokeWidth=5;strokeColor=#4D4D4D;" target="l7njR7gRJoPId_zkLMxI-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-1" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;strokeWidth=5;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;The API is Internal?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="260" width="290" x="170" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-2" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;perimeter=cloudPerimeter;strokeWidth=5;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Use RPC&lt;/font&gt;" vertex="1">
+          <mxGeometry height="130" width="200" x="540" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-4" edge="1" parent="1" source="l7njR7gRJoPId_zkLMxI-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;strokeWidth=5;strokeColor=#4D4D4D;" target="l7njR7gRJoPId_zkLMxI-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=#4D4D4D;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;YES&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="470" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-13" edge="1" parent="1" source="l7njR7gRJoPId_zkLMxI-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;strokeWidth=5;strokeColor=#4D4D4D;" target="l7njR7gRJoPId_zkLMxI-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-16" edge="1" parent="1" source="l7njR7gRJoPId_zkLMxI-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;labelPadding=0 4;strokeWidth=5;strokeColor=#4D4D4D;" target="l7njR7gRJoPId_zkLMxI-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-9" parent="1" style="rhombus;whiteSpace=wrap;html=1;shapeInside=1;strokeWidth=5;fillColor=#ffe6cc;strokeColor=#d79b00;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Under/Over Fetching is a Concern?&lt;/font&gt;" vertex="1">
+          <mxGeometry height="260" width="290" x="170" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=#4D4D4D;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;NO&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="320" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;roundedPerimeter=1;strokeWidth=5;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Use GraphQL&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="560" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=#4D4D4D;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;YES&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="470" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-15" parent="1" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;shapeInside=1;fixedSize=1;strokeWidth=5;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Use REST&lt;/font&gt;" vertex="1">
+          <mxGeometry height="80" width="170" x="230" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="l7njR7gRJoPId_zkLMxI-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontColor=#4D4D4D;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;NO&lt;/font&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="320" y="820" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

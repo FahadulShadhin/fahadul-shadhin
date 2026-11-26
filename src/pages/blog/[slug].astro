@@ -308,6 +308,22 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
     height: auto;
   }
 
+  .prose :global(img[src*="drawio"]) {
+    display: block;
+  }
+
+  .prose :global(img[src*="dark"]) {
+    display: none;
+  }
+
+  :global(html[data-theme="dark"]) .prose :global(img[src*="dark"]) {
+    display: block;
+  }
+
+  :global(html[data-theme="dark"]) .prose :global(img[src*="drawio"]) {
+    display: none;
+  }
+
   @media (max-width: 640px) {
     .article {
       padding-top: 40px;
