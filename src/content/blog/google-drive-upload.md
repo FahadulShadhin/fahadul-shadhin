@@ -178,6 +178,18 @@ else:
 4. Create the OAuth 2.0 Client ID for a Desktop app — go to [https://console.cloud.google.com/apis/credentials](https://console.cloud.google.com/apis/credentials) and create an OAuth client ID with **Desktop app** type.
 5. Set the `GOOGLE_DRIVE_CLIENT_ID`, `GOOGLE_DRIVE_CLIENT_SECRET`, and `GOOGLE_DRIVE_TOKEN_PATH` environment variables (e.g., in `.env`).
 
+## Why I Had to Learn This?
+
+The idea was to build a tool for myself that uploads my resume automatically to Google Drive:
+
+- I edit my resume data in json format.
+- A Python CLI tool builds and saves my PDF resume from the json data.
+- After generating the PDF it uploads the PDF to my Google Drive and returns the public web view link of the PDF that I can share with people.
+- Previously I was building my resume with [Overleaf](https://www.overleaf.com/) `LaTeX` editor.
+- AI agents did the heavy lifting of desigining the resume using a Python library called [PeportLab](https://pypi.org/project/reportlab/) from json data using the existing design inspiration of my `LateX` resume.
+- I needed to guide the Google Drive flow and implement it as per my need.
+- Check the Repo for full implementation: [github.com/FahadulShadhin/resume-builder](https://github.com/FahadulShadhin/resume-builder)
+
 ## Wrapping Up
 
 The upload process authenticates first, then uploads. The auth function handles the token, and the upload function handles the file.
