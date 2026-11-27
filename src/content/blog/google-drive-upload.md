@@ -3,9 +3,9 @@ title: Uploading Files to Google Drive with OAuth 2.0
 description: How the Google Drive upload process works with the OAuth 2.0 auth flow and the Google Drive API.
 pubDate: 2026-11-25
 tags:
-  - Google Drive
+  - Google Drive API
   - OAuth 2.0
-  - API
+  - Python
 draft: false
 ---
 
